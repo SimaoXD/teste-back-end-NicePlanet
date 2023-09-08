@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { UsuarioResult } from "../interfaces/usuarios.interfaces";
 import { client } from "../database";
-import { AppError } from "../errors/AppError";
+import { AppError } from "../errors";
 
 const validateIdExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { userId } = req.params;
