@@ -1,18 +1,19 @@
 import { z } from "zod";
 
 const usuarioSchema = z.object({
-  id: z.number().positive(),
-  name: z.string().max(50),
-  password: z.string().max(120),
+  idUsuario: z.number().positive(),
+  nomeUsuario: z.string().max(50),
+  senhaUsuario: z.string().max(120),
+  active: z.boolean().default(true),
 });
 
 const createUsuarioSchema = usuarioSchema.omit({
-  id: true,
+  idUsuario: true,
   active: true,
 });
 
 const usuarioWithoutPassword = usuarioSchema.omit({
-  password: true,
+  senhaUsuario: true,
 });
 
 export { usuarioSchema, createUsuarioSchema, usuarioWithoutPassword };

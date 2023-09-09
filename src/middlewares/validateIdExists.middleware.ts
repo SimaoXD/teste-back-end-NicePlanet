@@ -1,15 +1,15 @@
 import { Request, Response, NextFunction } from "express";
-import { UsuarioResult } from "../interfaces/usuarios.interfaces";
+import { ProdutorResult } from "../interfaces/produtor.interfaces";
 import { client } from "../database";
 import { AppError } from "../errors";
 
 const validateIdExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  const { userId } = req.params;
+  const { idProdutor } = req.params;
 
-  const query: UsuarioResult = await client.query('SELECT * FROM "users" WHERE "id" = $1', [userId]);
+  const query: ProdutorResult = await client.query('SELECT * FROM "produtor" WHERE "idProdutor" = $1', [idProdutor]);
 
   if (query.rowCount === 0) {
-    throw new AppError("User not Found", 404);
+    throw new AppError("Produtor not Found", 404);
   }
 
   res.locals = { ...res.locals, foundUser: query.rows[0] };

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
 export const sessionSchema = z.object({
-  id: z.number().positive(),
-  password: z.string().max(120),
+  nomeUsuario: z.string().max(50),
+  senhaUsuario: z.string().max(11),
 });

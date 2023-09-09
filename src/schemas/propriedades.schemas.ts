@@ -1,13 +1,19 @@
 import { z } from "zod";
 
 const propriedadeSchema = z.object({
-  id: z.number().positive(),
-  nome: z.string().max(120),
+  idPropriedade: z.number().positive(),
+  nomePropriedade: z.string().max(120),
   cadastroRural: z.string().max(50),
+  active: z.boolean().default(true),
 });
 
 const createPropriedadeSchema = propriedadeSchema.omit({
-  id: true,
+  idPropriedade: true,
+  active: true,
 });
 
-export { propriedadeSchema, createPropriedadeSchema };
+const propriedadeWithoutCadastroRural = propriedadeSchema.omit({
+  cadastroRural: true,
+});
+
+export { propriedadeSchema, createPropriedadeSchema, propriedadeWithoutCadastroRural };

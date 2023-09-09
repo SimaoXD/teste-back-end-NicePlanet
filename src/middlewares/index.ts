@@ -1,11 +1,11 @@
 import handleErrors from "./handleErrors";
 import validateIdExists from "./validateIdExists.middleware";
-import validateUsernameExists from "./validateUsernameExists.middleware";
-import validateBody from "./validateBody.middleware";
+import validateUsernameExists from "./validateUsernameExists";
+import ensureDataIsValidMiddleware from "./ensureDataIsValidMiddleware.middleware";
 
 export default {
   handleErrors,
   validateIdExists,
-  validateBody,
+  ensureDataIsValidMiddleware,
   validateUsernameExists,
 };
