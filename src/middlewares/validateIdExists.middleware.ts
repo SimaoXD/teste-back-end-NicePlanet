@@ -3,7 +3,7 @@ import { ProdutorResult } from "../interfaces/produtor.interfaces";
 import { client } from "../database";
 import { AppError } from "../errors";
 
-const validateIdExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const validateIdProdutorExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { idProdutor } = req.params;
 
   const query: ProdutorResult = await client.query('SELECT * FROM "produtor" WHERE "idProdutor" = $1', [idProdutor]);
@@ -17,4 +17,19 @@ const validateIdExists = async (req: Request, res: Response, next: NextFunction)
   return next();
 };
 
-export default validateIdExists;
+const validateIdPropriedadeExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const { idPropriedade } = req.params;
+
+  const query: ProdutorResult = await client.query('SELECT * FROM "propriedade" WHERE "idPropriedade" = $1', [idPropriedade]);
+
+  if (query.rowCount === 0) {
+    throw new AppError("Propriedade not Found", 404);
+  }
+
+  res.locals = { ...res.locals, foundUser: query.rows[0] };
+
+  return next();
+};
+
+export default validateIdProdutorExists;
+validateIdPropriedadeExists;
