@@ -18,14 +18,14 @@ A aplicação foi desenvolvida utilizando as seguintes tecnologias e bibliotecas
 
 - Node.js (versão X.X.X)
 - PostgreSQL (versão X.X.X)
-- Yarn ou npm para gerenciamento de pacotes
+- npm para gerenciamento de pacotes
 
 ## Configuração
 
 1. Clone o repositório para sua máquina local:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/SimaoXD/teste-back-end-NicePlanet
    Navegue até o diretório do projeto:
    ```
 
@@ -38,7 +38,6 @@ A aplicação foi desenvolvida utilizando as seguintes tecnologias e bibliotecas
 ## 🛠️ Tecnologias
 
 - [TypeScript](https://www.typescriptlang.org/)
-- (Aqui você pode listar outras tecnologias/frameworks/bibliotecas utilizadas)
 
 ## 🚩 Rotas da Aplicação
 
@@ -46,7 +45,7 @@ A aplicação foi desenvolvida utilizando as seguintes tecnologias e bibliotecas
 
 - **POST** `/usuario`: Cadastra um novo stakeholder.
 - **GET** `/usuario`: Retorna a lista de todos os stakeholders cadastrados.
-- **DELETE** `/usuario
+- **DELETE** `/usuario`:
 
 ### Login
 

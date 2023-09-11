@@ -1,11 +1,10 @@
 CREATE TABLE IF NOT EXISTS "Produtor"(
     "idProdutor" SERIAL PRIMARY KEY,
     "nomeProdutor" VARCHAR(50) NOT NULL,
-    "cpfProdutor" VARCHAR(50) NOT NULL,
-    "active" BOOLEAN DEFAULT TRUE NOT NULL,
+    "cpfProdutor" VARCHAR(11) NOT NULL,
     "idUsuario" INTEGER NOT NULL,
     FOREIGN KEY ("idUsuario") REFERENCES "Usuario"("idUsuario")
-            ON DELETE CASCADE
+            
 );
 
 CREATE TABLE IF NOT EXISTS "Proriedade"(

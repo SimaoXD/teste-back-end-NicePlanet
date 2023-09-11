@@ -3,17 +3,17 @@ import { AppError } from "../../errors";
 
 const listProdutorPropriedadeService = async (idProdutor: string) => {
   const queryString: string = `
-    SELECT
-    d."idProdutor" "produtorId",
-    d."nomeProdutor" "produtorName",
-    d."cpfProdutor" "produtorCpf",
-    p."idPropriedade" "propriedadeId",
-    p."nomePropriedade" "propriedadeName",
-    p."cadastroRural" "ProriedadeCadastro",
-    FROM produtor d
-        JOIN propriedade p
-        ON p.idPropriedade = d.idPropriedade
-    WHERE d.id = $1
+  SELECT
+  d."idProdutor" "produtorId",
+  d."nomeProdutor" "produtorName",
+  d."cpfProdutor" "produtorCpf",
+  p."idPropriedade" "propriedadeId",
+  p."nomePropriedade" "propriedadeName",
+  p."cadastroRural" "ProriedadeCadastro"
+FROM produtor d
+  JOIN propriedade p
+  ON p."idPropriedade" = d."idPropriedade"
+WHERE d."idProdutor" = $1
     
     `;
 
